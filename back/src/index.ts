@@ -1,6 +1,6 @@
-import { log } from "console";
+// PARAMETROS DE FUNCIONES, Y RETORNAR UN TIPO DE DATO
 
-function suma (a: number ,b: number): number {
+function suma (a: number, b: number): number{
     return a + b
 }
 
@@ -12,10 +12,12 @@ function isTrue (a: number ,b: number): boolean | string {
     }
 }
 
-function sayHello(nombre: string): void {
+function sayHello(nombre: string): void { //No retorna nada (void) - any es cuando no sabes qué es lo que retorna
     console.log('Hola' + nombre);
     
 }
+
+//INTERFACES
 
 interface IUsers {
     id: number,
@@ -28,7 +30,7 @@ interface IUser2 extends IUsers {
     rol: string
 }
 
-const user1: IUsers ={
+const user1: IUsers ={  //Tipo interface
     id: 1,
     name: 'string',
     email: 'string',
@@ -43,15 +45,19 @@ const user2: IUser2 ={
     rol: 'Administrador'
 }
 
+// ENUM
+
 enum RolUser {
     ADMINISTRADOR = 'Administrador',
     LECTOR = 'Lector'
 }
 
+// Tipos personalizados
+
 type TUserAdmin = {
     id: number,
     name: string,
-    rol: RolUser
+    rol: RolUser.ADMINISTRADOR 
     // rol: 'Administrador' | 'Lector' //Otra opción
 }
 
