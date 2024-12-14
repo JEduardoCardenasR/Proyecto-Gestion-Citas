@@ -5,8 +5,8 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node ./dist/index.js",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
-
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,13 @@
   "description": "",
   "devDependencies": {
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2"
   }
 }
