@@ -1,17 +1,45 @@
 import { Request, Response } from "express";
+import IAppointment from "../interfaces/IAppointments";
+import { cancelAppointmentService, createAppointmentService, getAllAppointmentsService, getAppointmentByIdService } from "../services/appointmentsService";
+import IAppointmentDto from "../dtos/IAppointmentDto";
 
-export const getAllAppointments = (req: Request, res: Response) => {
-    res.status(200).send("Se trae todos los turnos");
+export const getAllAppointments = async (req: Request, res: Response) => {
+    try {
+        const appointments: IAppointment[] = await getAllAppointmentsService();
+        res.status(200).json(appointments);
+    } catch (error: any) {
+        res.status(400).json({error: error.message});
+    };
 };
 
-export const getAppointmentById = (req: Request, res: Response) => {
-    res.status(200).send("Se trae el detalle de un turno en específico");
+export const getAppointmentById = async (req: Request, res: Response) => {
+    try {
+        const {id} = req.params;
+        const appointment: IAppointment = await getAppointmentByIdService(Number(id));
+        res.status(200).json(appointment);        
+    } catch (error: any) {
+        res.status(400).json({error: error.message});
+    };
 };
 
-export const schedule = (req: Request, res: Response) => {
-    res.status(200).send("Crea un nuevo turno");
+export const schedule = async (req: Request, res: Response) => {
+    try {
+        const{date, time, status, userId, description}: IAppointmentDto = req.body;
+        const newAppointment: IAppointment = await createAppointmentService ({
+            date, time, status, userId, description
+        });
+        res.status(200).json(newAppointment);
+    } catch (error: any) {
+        res.status(400).json({error: error. message});
+    };
 };
 
-export const inactiveAppointment = (req: Request, res: Response) => {
-    res.status(200).send("Cancela un turno");
+export const inactiveAppointment = async (req: Request, res: Response) => {
+   try {
+    const {id} = req.params;
+    const newAppointment: IAppointment = await cancelAppointmentService(Number(id));
+    res.status(200).json(newAppointment);
+   } catch (error: any) {
+    res.status(400).json({ error: error.message});
+   };
 };
