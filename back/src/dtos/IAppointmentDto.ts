@@ -1,7 +1,9 @@
+import { AppointmentStatus } from "../enums/AppointmentStatus";
+
 interface IAppointmentDto {
     date: Date,
     time: string,
-    status: "Active" | "Cancelled" | "Completed",
+    status: AppointmentStatus,
     userId: number,
     description: string
 };

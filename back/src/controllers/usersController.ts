@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { createUserService, getAllUsersService, getUserByIdService } from "../services/usersService";
-import IUser from "../interfaces/IUser";
+import { createUserService, getAllUsersService, getUserByIdService } from "../services/usersService"; 
 import IUserDto from "../dtos/IUserDto";
+import User from "../entities/User";
 
 export const getAllUsers = async (req: Request, res: Response) => {
     try {
-        const users: IUser[] = await getAllUsersService();
+        const users: User[] = await getAllUsersService();
         res.status(200).json(users)
     } catch (error: any) {
         res.status(400).json({error: error.message});
@@ -15,7 +15,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
 export const getUserById = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
-        const user: IUser = await getUserByIdService(Number(id));
+        const user: User = await getUserByIdService(Number(id));
         res.status(200).json(user)
     } catch (error: any) {
         res.status(400).json({error: error.message});
@@ -25,7 +25,7 @@ export const getUserById = async (req: Request, res: Response) => {
 export const register = async (req: Request, res: Response) => {
     try {
         const {name, email, username, password, birthdate, nDni}: IUserDto = req.body;
-        const newUser: IUser = await createUserService({
+        const newUser: User = await createUserService({
             name, email, username, password, birthdate, nDni
         });
         res.status(200).json(newUser)
