@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
-import { createUserService, getAllUsersService, getUserByIdService } from "../services/usersService"; 
+import { createUserService, findUser, getAllUsersService, getUserByIdService } from "../services/usersService"; 
 import IUserDto from "../dtos/IUserDto";
 import User from "../entities/User";
+import { validateCredential } from "../services/credentialsService";
+import Credential from "../entities/Credential";
 
 export const getAllUsers = async (req: Request, res: Response) => {
     try {
@@ -18,7 +20,7 @@ export const getUserById = async (req: Request, res: Response) => {
         const user: User = await getUserByIdService(Number(id));
         res.status(200).json(user)
     } catch (error: any) {
-        res.status(400).json({error: error.message});
+        res.status(404).json({error: error.message});
     }    
 };
 
@@ -28,13 +30,23 @@ export const register = async (req: Request, res: Response) => {
         const newUser: User = await createUserService({
             name, email, username, password, birthdate, nDni
         });
-        res.status(200).json(newUser)
+        res.status(201).json(newUser)
     } catch (error: any) {
         res.status(400).json({error: error.message});
     };    
 };
 
-//PENDIENTE
-export const login = (req: Request, res: Response) => {
-    res.status(200).send("Autentica al usuario");
+
+export const login = async (req: Request, res: Response) => {
+    try{
+        const { username, password } = req.body;
+        const credential: Credential = await validateCredential({ username, password})
+        const user = await findUser(credential.id)
+        res.status(200).json({
+            user,
+            login: true
+        })
+    } catch (error: any) {
+        res.status(400).json({ error: error.message})
+    }
 };
