@@ -1,9 +1,40 @@
-import { useState } from "react";
-import MyAppointmentsPreload from "../../helpers/MyAppointments";
+import { useState, useEffect } from "react";
 import Appointment from "../../components/Appointment/Appointment";
+import axios from "axios";
 
 const MyAppointments = () => {
-    const [appointments, setAppointments] = useState(MyAppointmentsPreload);
+    const [appointments, setAppointments] = useState([]);
+
+    //MONTEJE DEL COMPONENTE
+
+    useEffect(()=> {
+        //LÓGICA A EJECUTAR
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3002/appointments');
+                setAppointments(response.data)
+            } catch (error) {
+                console.log(error);
+                
+            }
+        }
+        fetchData()
+    }, [])
+
+    // //ACTUALIZACIÓN DEL COMPONENTE
+
+    // useEffect(()=> {
+    //     //LÓGICA A EJECUTAR
+    // }, [appointments])
+
+    // //DESMONTEJE DEL COMPONENTE
+
+    // useEffect(()=> {
+    //     //LÓGICA A EJECUTAR
+    //     return () => {
+    //         //LÓGICA A EJECTUAR CUANDO SE DESMONTA EL COMPONENTE
+    //     }
+    // }, [])
 
     return (
         <div>
