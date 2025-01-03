@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { validateRegister } from '../../helpers/validate';
-import {postData} from '../../helpers/PostData';
+import { postDataRegister } from '../../helpers/PostData';
 
 const Register = () => {
 
@@ -13,7 +13,7 @@ const Register = () => {
             initialValues={{ email: '', password: '', name: '', birthdate: '', nDni: '', username: '' }}
             validate={validateRegister}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-                postData(values);
+                postDataRegister(values);
                 setSubmitting(false);
                 resetForm()
                 }}

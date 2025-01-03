@@ -50,48 +50,35 @@ export const validateRegister = (values) => {
     // Validación contraseña
     if (!values.password) {
       errors.password = 'Password is required';
-    } 
-    // else if (values.password.length < 8) {
-    //   errors.password = 'Password must be at least 8 characters long';
-    // } else if (
-    //   !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/.test(values.password)
-    // ) {
-    //   errors.password =
-    //     'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
-    // }
+    } else if (values.password.length < 8) {
+      errors.password = 'Password must be at least 8 characters long';
+    } else if (
+      !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/.test(values.password)
+    ) {
+      errors.password =
+        'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+    }
   
     return errors;
   };
   
 
-  // export const validateLogin = (values) => {
-  //   const errors = {};
-  
-  //   // Validación username
-  //   if (!values.username) {
-  //     errors.username = 'Username is required';
-  //   } else if (!/^[a-zA-Z0-9_]+$/.test(values.username)) {
-  //     errors.username = 'Username must contain only letters, numbers, or underscores';
-  //   }
-  
-  //   // Validación password
-  //   if (!values.password) {
-  //     errors.password = 'Password is required';
-  //   } else if (values.password.length < 8) {
-  //     errors.password = 'Password must be at least 8 characters long';
-  //   }
-  
-  //   return errors;
-  // };
-  
-
   export const validateLogin = (values) => {
     const errors = {};
   
+    // Validación username
     if (!values.username) {
       errors.username = 'Username is required';
-    } else if (values.username && !values.password) {
-      errors.password = 'Password is required';
+    } else if (!/^[a-zA-Z0-9_]+$/.test(values.username)) {
+      errors.username = 'Username must contain only letters, numbers, or underscores';
     }
+  
+    // Validación password
+    if (!values.password) {
+      errors.password = 'Password is required';
+    } else if (values.password.length < 8) {
+      errors.password = 'Password must be at least 8 characters long';
+    }
+  
     return errors;
-  }
+  };

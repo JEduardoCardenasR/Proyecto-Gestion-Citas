@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { validateLogin } from '../../helpers/validate';
-// import { postDataLogin } from '../../helpers/PostData';
-import axios from 'axios';
+import { postDataLogin } from '../../helpers/PostData';
 
 const Login = () => {
     const initialValues = {
@@ -27,22 +26,8 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        postDataLogin()
+        postDataLogin(formData)
     }
-
-    const postDataLogin = async () => {
-        try {
-          const response = await axios.post('http://localhost:3002/users/login', formData);
-          if (response.status === 200) {
-            alert('User logged successfully');
-          } else {
-            alert('User not logged successfully');
-          }
-        } catch (error) {
-          console.log(error);
-          alert('User not logged successfully');
-        }
-      };
 
     return (
         <div>
