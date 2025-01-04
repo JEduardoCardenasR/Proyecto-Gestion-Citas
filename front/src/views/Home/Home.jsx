@@ -1,11 +1,9 @@
-import Navbar from "../../components/Navbar/Navbar.jsx";
 import style from "./Home.module.css"
 
 
 const Home = () => {
     return (
-        <div className={style.homeContainer}>
-            <Navbar />
+        <div className={style.homeContainer}>  
             <h1>Home</h1>
         </div>
     )
