@@ -51,7 +51,7 @@ input:focus {
 }
 
 .errorMessage {
-    color: #e74c3c;
+    color: rgb(153, 0, 0);
     font-size: 0.875rem;
     margin-top: 5px;
 }

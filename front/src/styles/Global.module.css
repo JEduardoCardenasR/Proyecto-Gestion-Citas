@@ -11,7 +11,7 @@
 body {
   font-family: var(--font-family-main);
   font-size: var(--font-size-medium);
-  color: var(--text-color);
+  color: var(--text-secondary);
   background-color: var(--neutral-color);
   line-height: 1.5;
 }
@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--text-color);
   text-decoration: none;
 }
 

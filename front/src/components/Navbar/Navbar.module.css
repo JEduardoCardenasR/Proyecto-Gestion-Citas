@@ -2,11 +2,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color); /* Usamos el color primario definido en las variables */
+    /* background-color: var(--primary-color);  */
     padding: var(--spacing-medium) var(--spacing-large); /* Ajusta el padding para mayor altura */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 10rem; /* Aumentamos la altura de la barra de navegación */
-    color: var(--text-color);
+    height: 10rem; 
+    background-image: url('../../assets/Images/TexturaAzul3.jpg'); /* Misma o distinta textura */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-color: rgb(52, 152, 219, 0.5); 
+    background-blend-mode: overlay;
   }
   
   .logo {
@@ -24,6 +29,7 @@
     list-style: none;
     justify-content: space-evenly; /* Distribuye los enlaces de manera uniforme */
     width: 100%; /* Ocupa todo el espacio disponible */
+    color: var(--text-color);
     text-shadow: 0 0 4px white, 0 0 10px white;
   }
   
@@ -32,7 +38,7 @@
   }
   
   .navLinks a {
-    color: var(--white); /* Color de los enlaces */
+    color:#001f75; /* Color de los enlaces */
     text-decoration: none;
     font-weight: bold;
     font-size: var(--font-size-large); /* Aumentamos el tamaño de la fuente */
@@ -44,7 +50,12 @@
   
   .navIcons {
     display: flex;
-    color: var(--neutral-color);
+    color: white;
+  }
+
+  .navIcons p {
+    text-align: left;
+    font-size: 1.2rem;
   }
   
   .navIcons img {

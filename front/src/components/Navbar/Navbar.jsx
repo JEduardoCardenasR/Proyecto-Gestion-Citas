@@ -5,9 +5,9 @@ import logo from '../../assets/Images/Logo.png';
 
 const Navbar = () => {
     return (
-        <nav className={style.navbarContainer}>
+        <nav className={style.navbarContainer} >
             
-            <Link to='/home' className={style.logo}>
+            <Link to='/' className={style.logo} onClick={() => window.scrollTo(0, 0)}>
                 <img src={logo} alt="NATALUX" />
             </Link>
 
@@ -20,7 +20,7 @@ const Navbar = () => {
                     <p>Register</p>
                 </Link>
 
-                <Link to='/'>
+                <Link to='/login'>
                     <p>Login</p>
                 </Link>
 
