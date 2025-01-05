@@ -1,0 +1,78 @@
+.registerContainer {
+    background-image: url('../../assets/Images/FotoRegister.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.formWrapper {
+    background: rgba(255, 255, 255, 0.85); /* Fondo blanco con transparencia */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.formField {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #2c3e50;
+    background-color: #ecf0f1;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.errorMessage {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submitButton:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.submitButton:hover:not(:disabled) {
+    background-color: #2980b9;
+}

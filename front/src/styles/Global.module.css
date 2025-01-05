@@ -1,0 +1,48 @@
+@import './Variables.module.css';
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos base */
+body {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-medium);
+  color: var(--text-color);
+  background-color: var(--neutral-color);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-medium);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Clases reutilizables */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}

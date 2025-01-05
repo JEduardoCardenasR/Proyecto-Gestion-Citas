@@ -1,0 +1,66 @@
+/* Contenedor principal */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Hace que ocupe toda la altura de la pantalla */
+  background-image: url('../../assets/Images/FotoLogin.jpg'); /* Cambia la ruta a tu imagen */
+  background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-color: var(--neutral-color); /* Fondo general */
+  padding: 20px; /* Espaciado en los bordes */
+}
+
+/* Contenedor adicional para el formulario */
+.formWrapper {
+  width: 100%;
+  max-width: 400px; /* Ancho máximo para que no sea demasiado grande */
+  background-color: white; /* Fondo blanco */
+  padding: 35px;
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Centra el texto */
+}
+
+.formWrapper div {
+  margin-bottom: 12px; /* Ajusta este valor según el espacio que desees */
+}
+
+/* Estilos para el formulario */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Estilos para las entradas */
+.form input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para los botones */
+button {
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Estilos para los mensajes de error */
+.error {
+  color: rgb(153, 0, 0);
+  font-size: 12px;
+  margin-top: 5px;
+}

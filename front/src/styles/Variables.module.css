@@ -1,0 +1,23 @@
+:root {
+    /* Colores principales */
+    --primary-color: #007bff; /* Azul primario */
+    --secondary-color: #28A745; /* Verde */
+    --neutral-color: #F8F9FA; /* Fondo claro */
+    --text-color: #001f75; /* Texto principal */
+    --text-secondary: #6C757D; /* Texto secundario */
+  
+    /* Fuentes */
+    --font-family-main: 'Roboto', sans-serif;
+    --font-size-small: 0.875rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.25rem;
+  
+    /* Espaciado */
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+  
+    /* Sombras */
+    --box-shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

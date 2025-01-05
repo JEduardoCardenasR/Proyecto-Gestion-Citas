@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { validateLogin } from '../../helpers/validate';
 import { postDataLogin } from '../../helpers/PostData';
+import style from './Login.module.css';
 
 const Login = () => {
     const initialValues = {
@@ -30,37 +31,49 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h1>Login to Natalux</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="username2">Username:</label>
-                    <input 
-                        type="text"
-                        name='username'
-                        id='username2'
-                        placeholder='johndoe123'
-                        value={formData.username}
-                        onChange={handleChange}
-                    />
-                    {errors.username && <span>{errors.username}</span>}
-                </div>
+        <div className={style.loginContainer}>
+            <div className={style.formWrapper}>
+                <h1>Login to Natalux</h1>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="username2">Username:</label>
+                        <input 
+                            type="text"
+                            name='username'
+                            id='username2'
+                            placeholder='johndoe123'
+                            value={formData.username}
+                            onChange={handleChange}
+                            />
+                        {errors.username && (
+                            <>
+                                <br /> 
+                                <span className={style.error}>{errors.username}</span>
+                            </>
+                        )}
+                    </div>
 
-                <div>
-                    <label htmlFor="password2">Password:</label>
-                    <input 
-                        type="password"
-                        name='password'
-                        id='password2'
-                        placeholder='********'
-                        value={formData.password}
-                        onChange={handleChange}
-                    />
-                    {errors.password && <span>{errors.password}</span>}
-                </div>
+                    <div>
+                        <label htmlFor="password2">Password:</label>
+                        <input 
+                            type="password"
+                            name='password'
+                            id='password2'
+                            placeholder='********'
+                            value={formData.password}
+                            onChange={handleChange}
+                            />
+                       {errors.password && (
+                            <>
+                                <br /> 
+                                <span className={style.error}>{errors.password}</span>
+                            </>
+                        )}
+                    </div>
 
-                <button disabled={errors.username || errors.password} type='submit'>Login</button>
-            </form>
+                    <button disabled={errors.username || errors.password} type='submit'>Login</button>
+                </form>
+            </div>
         </div>
     )
 }

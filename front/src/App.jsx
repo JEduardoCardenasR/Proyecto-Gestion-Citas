@@ -5,6 +5,10 @@ import Login from './views/Login/Login';
 import MyAppointments from './views/MyAppointments/MyAppointments';
 import Register from './views/Register/Register';
 import Navbar from "./components/Navbar/Navbar.jsx";
+import './styles/Global.module.css';
+import Footer from './components/Footer/Footer.jsx';
+import AboutUs from './views/AboutUs/AboutUs.jsx';
+import ContactUs from './views/ContactUs/ContactUs.jsx';
 
 function App() {
   return (
@@ -14,8 +18,11 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/appointments' element={<MyAppointments />} />       
+        <Route path='/appointments' element={<MyAppointments />} />
+        <Route path='/about' element={<AboutUs />} />
+        <Route path='/contact' element={<ContactUs />} />       
       </Routes>
+      <Footer />
     </>
   )
 }

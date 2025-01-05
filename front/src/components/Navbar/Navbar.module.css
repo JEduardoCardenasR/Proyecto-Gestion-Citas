@@ -1,10 +1,54 @@
 .navbarContainer {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
-    background-color: bisque;
-    color: black;
-    padding: 20px;
-    width: 100%;
-}
+    background-color: var(--primary-color); /* Usamos el color primario definido en las variables */
+    padding: var(--spacing-medium) var(--spacing-large); /* Ajusta el padding para mayor altura */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 10rem; /* Aumentamos la altura de la barra de navegación */
+    color: var(--text-color);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 50px; /* Aumentamos el tamaño del logo */
+    margin-right: var(--spacing-small);
+  }
+  
+  .navLinks {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly; /* Distribuye los enlaces de manera uniforme */
+    width: 100%; /* Ocupa todo el espacio disponible */
+    text-shadow: 0 0 4px white, 0 0 10px white;
+  }
+  
+  .navLinks li {
+    margin: 0; /* Eliminamos el margen adicional de los elementos de la lista */
+  }
+  
+  .navLinks a {
+    color: var(--white); /* Color de los enlaces */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--font-size-large); /* Aumentamos el tamaño de la fuente */
+  }
+  
+  .navLinks a:hover {
+    text-decoration: underline;
+  }
+  
+  .navIcons {
+    display: flex;
+    color: var(--neutral-color);
+  }
+  
+  .navIcons img {
+    height: 24px;
+    margin-left: var(--spacing-medium);
+  }
+  

@@ -1,0 +1,70 @@
+.contactUsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+    background-image: url('../../assets/Images/FotoContactUs.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.infoWrapper {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad para ver la imagen */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 40px;
+    width: 50%;
+    max-width: 900px; /* Limita el ancho máximo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil para el contenedor */
+}
+
+h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.explanationText {
+    font-size: 1rem;
+    color: #7f8c8d;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.socialContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1000px;
+    flex-wrap: wrap;
+}
+
+.socialSection {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.socialSection h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
