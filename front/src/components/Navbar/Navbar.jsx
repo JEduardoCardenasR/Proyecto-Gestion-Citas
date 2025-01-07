@@ -1,9 +1,11 @@
 import style from "./Navbar.module.css";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Images/Logo.png';
+import { useUser } from "../../context/UserContext";
 
 
 const Navbar = () => {
+    const {user} = useUser();
     return (
         <nav className={style.navbarContainer} >
             
@@ -15,27 +17,45 @@ const Navbar = () => {
                 <p>Welcome to Natalux</p>
             </div>
 
-            <ul className={style.navLinks}>
-                <Link to='/register'>
-                    <p>Register</p>
-                </Link>
+            {
+                user.name ? (
+                    
+                    <ul className={style.navLinks}>
+                        <Link to='/appointments'>
+                            <p>Appointments</p>
+                        </Link>
 
-                <Link to='/login'>
-                    <p>Login</p>
-                </Link>
+                        <Link to='/about'>
+                            <p>About Us</p>
+                        </Link>
 
-                <Link to='/appointments'>
-                    <p>Appointments</p>
-                </Link>
+                        <Link to='/contact'>
+                            <p>Contact Us</p>
+                        </Link>
+                    </ul>
 
-                <Link to='/about'>
-                    <p>About Us</p>
-                </Link>
+                ) : (
 
-                <Link to='/contact'>
-                    <p>Contact</p>
-                </Link>
-            </ul>
+                    <ul className={style.navLinks}>
+                        <Link to='/register'>
+                            <p>Register</p>
+                        </Link>
+
+                        <Link to='/login'>
+                            <p>Login</p>
+                        </Link>
+
+                        <Link to='/about'>
+                            <p>About Us</p>
+                        </Link>
+
+                        <Link to='/contact'>
+                            <p>Contact Us</p>
+                        </Link>
+                    </ul>
+
+                )
+            }
         </nav>
     )
 }

@@ -1,23 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Appointment from "../../components/Appointment/Appointment";
 import axios from "axios";
 import style from "./MyAppointments.module.css";
+import { useUser } from '../../context/UserContext';
+import { useNavigate} from 'react-router-dom'
 
 const MyAppointments = () => {
-    const [appointments, setAppointments] = useState([]);
+    const navigate = useNavigate();
+    const {user, setUserAppointments, userAppointments} = useUser();
+
 
     // MONTAJE DEL COMPONENTE
     useEffect(() => {
         // LÓGICA A EJECUTAR
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3002/appointments');
-                setAppointments(response.data);
+                const response = await axios.get(`http://localhost:3002/users/${user.id}`);
+                setUserAppointments(response.data.appointments)
             } catch (error) {
                 console.log(error);
             }
         };
-        fetchData();
+        !user.name ? navigate('/login') : fetchData();
     }, []);
 
     // // ACTUALIZACIÓN DEL COMPONENTE
@@ -36,8 +40,8 @@ const MyAppointments = () => {
     return (
         <div className={style.container}>
             <h1>My Appointments</h1>
-            {appointments.length ? (
-                appointments.map((appointment) => {
+            {userAppointments.length ? (
+                userAppointments.map((appointment) => {
                     return (
                         <Appointment
                             key={appointment.id}

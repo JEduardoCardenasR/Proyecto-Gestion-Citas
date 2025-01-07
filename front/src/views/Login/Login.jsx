@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { validateLogin } from '../../helpers/validate';
 import { postDataLogin } from '../../helpers/PostData';
 import style from './Login.module.css';
+import { useUser } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const {setUser} = useUser(); //Esto puede ir en posData?
     const initialValues = {
         username: '',
         password: '',
@@ -27,7 +31,7 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        postDataLogin(formData)
+        postDataLogin(formData, setUser, navigate)
     }
 
     return (
@@ -71,7 +75,7 @@ const Login = () => {
                         )}
                     </div>
 
-                    <button disabled={errors.username || errors.password} type='submit'>Login</button>
+                    <button disabled={errors.username || errors.password} type='submit' onClick={() => window.scrollTo(0, 0)}>Login</button>
                 </form>
             </div>
         </div>
