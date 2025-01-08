@@ -40,6 +40,9 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
     try{
         const { username, password } = req.body;
+
+        console.log("Datos de login recibidos:", { username, password });
+
         const credential: Credential = await validateCredential({ username, password})
         const user = await findUser(credential.id)
         res.status(200).json({

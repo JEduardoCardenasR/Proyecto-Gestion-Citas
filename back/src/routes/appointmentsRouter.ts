@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { getAllAppointments, getAppointmentById, inactiveAppointment, schedule } from "../controllers/appointmentsController";
+import { validateDate, validateDescription, validateTime } from "../middlewares/appointmentValidationMiddleware";
 
 const appointmentsRouter: Router = Router();
 
@@ -12,7 +13,11 @@ appointmentsRouter.get("/", getAllAppointments);
 appointmentsRouter.get("/:id", getAppointmentById);
 
 //Agendar un nuevo turno
-appointmentsRouter.post("/schedule", schedule);
+appointmentsRouter.post("/schedule",
+    validateDate,
+    validateTime,
+    validateDescription,
+    schedule);
 
 //Cambiar el estatus de un turno a "Cancelled"
 appointmentsRouter.put("/cancel/:id", inactiveAppointment);
