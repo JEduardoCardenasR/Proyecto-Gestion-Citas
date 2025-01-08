@@ -82,3 +82,25 @@ export const validateRegister = (values) => {
   
     return errors;
   };
+
+  export const isWeekDay = (dateString) => {
+    const date = new Date(dateString);
+    const dayOfWeek = date.getDay();
+    return dayOfWeek !== 5 && dayOfWeek !== 6 //checar
+  }
+
+  export const isValidTime = (timeString) => {
+    const [hour, minutes] = timeString.split(':').map(Number)
+    if(hour < 8 || hour > 17 || (hour === 17 && minutes > 0)) {
+      return false
+    }
+    return true
+  }
+
+  export const validateDescription = (description) => {
+    const wordCount = description.length;
+    if (wordCount > 30) {
+        return false;
+    }
+    return true;
+};

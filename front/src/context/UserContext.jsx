@@ -11,7 +11,6 @@ export const UserProvider = ({children}) => {
     const [user, setUser] = useState({});
     const [userAppointments, setUserAppointments] = useState([]);
 
-    console.log(user, 'User logged');
     
     return (
         <UserContext.Provider value={{

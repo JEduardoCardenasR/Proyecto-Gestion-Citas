@@ -11,16 +11,17 @@
 
 h1 {
     color: #2c3e50;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 20px;
     text-align: center;
     background: rgba(255, 255, 255, 0.8);
     padding: 10px 20px;
     border-radius: 8px;
+    min-width: 430px;
 }
 
 .noAppointments {
-    color: #e74c3c;
+    color: rgb(153, 0, 0);
     font-size: 1.2rem;
     background: rgba(255, 255, 255, 0.8);
     padding: 10px 20px;
@@ -40,4 +41,28 @@ h1 {
 
 .appointmentContainer:not(:last-child) {
     margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--text-color);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    background-color: #1c639c;
+    transform: translateY(0);
 }

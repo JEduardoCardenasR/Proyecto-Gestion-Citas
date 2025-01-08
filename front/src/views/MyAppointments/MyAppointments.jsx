@@ -3,7 +3,7 @@ import Appointment from "../../components/Appointment/Appointment";
 import axios from "axios";
 import style from "./MyAppointments.module.css";
 import { useUser } from '../../context/UserContext';
-import { useNavigate} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 
 const MyAppointments = () => {
     const navigate = useNavigate();
@@ -39,17 +39,14 @@ const MyAppointments = () => {
 
     return (
         <div className={style.container}>
+            <Link to='/newappointment' className={style.button}>
+                <p>Create A New Appointment</p>
+            </Link>
             <h1>My Appointments</h1>
             {userAppointments.length ? (
                 userAppointments.map((appointment) => {
                     return (
-                        <Appointment
-                            key={appointment.id}
-                            date={appointment.date}
-                            time={appointment.time}
-                            description={appointment.description}
-                            status={appointment.status}
-                        />
+                        <Appointment key={appointment.id} {...appointment}/>
                     );
                 })
             ) : (

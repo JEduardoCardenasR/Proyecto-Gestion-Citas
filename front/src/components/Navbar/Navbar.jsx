@@ -1,11 +1,18 @@
 import style from "./Navbar.module.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/Images/Logo.png';
 import { useUser } from "../../context/UserContext";
 
 
 const Navbar = () => {
-    const {user} = useUser();
+    const {user, setUser} = useUser();
+    
+    const navigate = useNavigate();
+    const logoutUser = () => {
+        setUser({})
+        navigate('/')
+    }
+
     return (
         <nav className={style.navbarContainer} >
             
@@ -32,6 +39,9 @@ const Navbar = () => {
                         <Link to='/contact'>
                             <p>Contact Us</p>
                         </Link>
+                        <button onClick={logoutUser}>
+                            Logout
+                        </button>
                     </ul>
 
                 ) : (

@@ -3,6 +3,7 @@ import './App.css';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import MyAppointments from './views/MyAppointments/MyAppointments';
+import NewAppointment from './views/NewAppointment/NewAppointment.jsx';
 import Register from './views/Register/Register';
 import Navbar from "./components/Navbar/Navbar.jsx";
 import './styles/Global.module.css';
@@ -19,6 +20,7 @@ function App() {
         <Route path='/Login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/appointments' element={<MyAppointments />} />
+        <Route path='/newappointment' element={<NewAppointment />} />
         <Route path='/about' element={<AboutUs />} />
         <Route path='/contact' element={<ContactUs />} />       
       </Routes>

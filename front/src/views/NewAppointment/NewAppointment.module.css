@@ -1,0 +1,86 @@
+/* Contenedor principal */
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../../assets/Images/FotoCreate.jpg'); /* Reemplazar con tu imagen */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Formulario */
+  .formContainer {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px; /* Limitar el ancho del formulario */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los elementos */
+    text-align: center;
+  }
+  
+  /* Título */
+  .formContainer h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0px;
+    color: var(--text-color); /* Color primario */
+  }
+  
+  /* Inputs y etiquetas */
+  .formContainer label {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: var(--text-secondary); /* Gris oscuro */
+  }
+  
+  .formContainer input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    margin-bottom: 1rem;
+  }
+  
+  .formContainer input:focus {
+    outline: none;
+    border-color: #3498db; /* Color primario */
+  }
+  
+  /* Botón */
+  .formContainer button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db; /* Color primario */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .formContainer button:hover {
+    background-color: #2980b9; /* Tonalidad más oscura */
+  }
+
+  .formContainer button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Mensajes de error */
+  .formContainer span {
+    color: rgb(153, 0, 0); /* Rojo */
+    font-size: 0.9rem;
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+  
