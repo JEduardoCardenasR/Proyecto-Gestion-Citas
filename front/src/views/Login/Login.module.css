@@ -21,6 +21,7 @@
   border-radius: 15px; /* Bordes redondeados */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   text-align: center; /* Centra el texto */
+  min-width: 500px;
 }
 
 .formWrapper div {

@@ -1,7 +1,4 @@
 import axios from 'axios';
-// import { useUser } from '../../context/UserContext';
-
-// const {setUser} = useUser();
 
 export const postDataRegister = async (formData) => {
   try {
@@ -36,3 +33,20 @@ export const postDataLogin = async (formData, setUser, navigate) => {
     alert('User not logged successfully');
   }
 };
+
+export const postDataNew = async (formData, user, navigate) => {
+  try{
+      await axios.post(`http://localhost:3002/appointments/schedule`, {
+          date: formData.date,
+          time: formData.time,
+          description: formData.description,
+          userId: user.id
+
+      });
+      alert ('Appointment Successfully Created')
+      navigate('/appointments')
+  } catch (error){
+      console.log(error);
+      
+  }
+}

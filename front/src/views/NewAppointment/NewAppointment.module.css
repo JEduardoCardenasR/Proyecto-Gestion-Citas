@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 125vh;
     background-image: url('../../assets/Images/FotoCreate.jpg'); /* Reemplazar con tu imagen */
     background-size: cover;
     background-position: center;
@@ -21,6 +21,7 @@
     flex-direction: column;
     gap: 15px; /* Espacio entre los elementos */
     text-align: center;
+    min-width: 500px;
   }
   
   /* Título */

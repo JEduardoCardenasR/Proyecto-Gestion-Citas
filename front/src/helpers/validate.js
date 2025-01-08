@@ -83,15 +83,41 @@ export const validateRegister = (values) => {
     return errors;
   };
 
+  export const requiredDay = (dateString) => {
+    const required = dateString;
+    if (!required) {
+      return false
+    }
+    return true
+  }
+
   export const isWeekDay = (dateString) => {
     const date = new Date(dateString);
     const dayOfWeek = date.getDay();
-    return dayOfWeek !== 5 && dayOfWeek !== 6 //checar
-  }
+    return dayOfWeek !== 5 && dayOfWeek !== 6 
+  };
+
+  export const isValidDay = (dateString)=> {
+    const date = new Date(dateString);
+    const today = new Date();
+    if (date <= today) {
+        return false;
+    }
+    return true; 
+  };
+  
 
   export const isValidTime = (timeString) => {
     const [hour, minutes] = timeString.split(':').map(Number)
     if(hour < 8 || hour > 17 || (hour === 17 && minutes > 0)) {
+      return false
+    }
+    return true
+  };
+
+  export const requiredTime = (timeString) => {
+    const required = timeString;
+    if (!required) {
       return false
     }
     return true
@@ -103,4 +129,4 @@ export const validateRegister = (values) => {
         return false;
     }
     return true;
-};
+  };

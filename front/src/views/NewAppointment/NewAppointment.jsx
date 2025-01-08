@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
-import { isValidTime, isWeekDay, validateDescription } from "../../helpers/validate";
-import axios from "axios";
+import { requiredDay, requiredTime, isValidTime, isValidDay, isWeekDay, validateDescription } from "../../helpers/validate";
 import style from './NewAppointment.module.css';
+import { postDataNew } from "../../helpers/PostData";
 
 const NewAppointment = () => {
 
@@ -22,27 +22,10 @@ const NewAppointment = () => {
     const [formData, setFormData] = useState(initialValue)
     const [errors, setErrors] = useState(initialValue)
 
-    const postData = async () => {
-        try{
-            await axios.post(`http://localhost:3002/appointments/schedule`, {
-                date: formData.date,
-                time: formData.time,
-                description: formData.description,
-                userId: user.id
-
-            });
-            alert ('Appointment Successfully Created')
-            navigate('/appointments')
-        } catch (error){
-            console.log(error);
-            
-        }
-    }
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        postData();
-
+        postDataNew(formData, user, navigate);
     }
 
     const handleChange = (event) => {
@@ -59,9 +42,16 @@ const NewAppointment = () => {
     
         // Validar la fecha
         if (formData.date) {
+
             if (!isWeekDay(formData.date)) {
                 newErrors.date = 'The appointment must be scheduled on a weekday.';
-            } else {
+            }
+            
+            if (!isValidDay(formData.date)) {
+                newErrors.date = 'The appointment must be scheduled for a date after today.';
+            } 
+
+            if ((isWeekDay(formData.date)) && (isValidDay(formData.date))) {
                 newErrors.date = ''; // Limpiar el error si la fecha es válida
             }
         }
@@ -76,6 +66,15 @@ const NewAppointment = () => {
         }
 
         if (formData.description) {
+
+          if (!requiredDay(formData.date)) {
+            newErrors.date = 'Date is required';
+          }
+
+          if (!requiredTime(formData.time)) {
+            newErrors.time = 'Time is required';
+          }
+
           if (!validateDescription(formData.description)) {
               newErrors.description = 'The description must not exceed 30 words.';
           } else {
@@ -121,6 +120,7 @@ const NewAppointment = () => {
                   name="description"
                   onChange={handleChange}
                   value={formData.description}
+                  placeholder='Description (max 30 words)'
                 />
                 {errors.description && <span>{errors.description}</span>}
               </div>

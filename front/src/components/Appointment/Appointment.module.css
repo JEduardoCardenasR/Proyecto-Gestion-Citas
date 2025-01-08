@@ -7,7 +7,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     margin-bottom: 1rem;
     color: #34495e;
-    min-width: 430px; /* Establece el ancho mínimo de cada appointment */
+    min-width: 650px; /* Establece el ancho mínimo de cada appointment */
 
     /* Flexbox para centrar el botón */
     display: flex;
