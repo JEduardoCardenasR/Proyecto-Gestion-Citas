@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getAllAppointments, getAppointmentById, inactiveAppointment, schedule } from "../controllers/appointmentsController";
 import { validateDate, validateDescription, validateTime } from "../middlewares/appointmentValidationMiddleware";
+import { validateCancellation } from "../middlewares/cancelValidationMiddleware";
 
 const appointmentsRouter: Router = Router();
 
@@ -20,6 +21,6 @@ appointmentsRouter.post("/schedule",
     schedule);
 
 //Cambiar el estatus de un turno a "Cancelled"
-appointmentsRouter.put("/cancel/:id", inactiveAppointment);
+appointmentsRouter.put("/cancel/:id", validateCancellation, inactiveAppointment);
 
 export default appointmentsRouter;
