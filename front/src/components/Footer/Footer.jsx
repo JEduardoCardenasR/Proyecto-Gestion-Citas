@@ -16,15 +16,15 @@ const Footer = () => {
         NATALUX - Maternal-Fetal Clinic
       </div>
       <div className={style.socials}>
-        <a href="/contact">
+        <Link to="/contact">
           <img src={FacebookLogo} alt="Facebook" />
-        </a>
-        <a href="/contact">
+        </Link>
+        <Link to="/contact">
           <img src={InstagramLogo} alt="Instagram" />
-        </a>
-        <a href="/contact">
+        </Link>
+        <Link to="/contact">
           <img src={WhatsappLogo} alt="Whatsapp" />
-        </a>
+        </Link>
       </div>
     </footer>
   );
