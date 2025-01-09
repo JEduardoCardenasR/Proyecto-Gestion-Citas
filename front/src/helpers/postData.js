@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-export const postDataRegister = async (formData) => {
+export const postDataRegister = async (formData, navigate) => {
   try {
     const response = await axios.post('http://localhost:3002/users/register', formData);
+    navigate('/login')
     if (response.status === 201) {
       alert('User logged successfully');
     } else {

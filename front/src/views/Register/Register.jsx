@@ -3,8 +3,10 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { validateRegister } from '../../helpers/validate';
 import { postDataRegister } from '../../helpers/PostData';
 import style from './Register.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    const navigate = useNavigate();
     return (
         <div className={style.registerContainer}>
             <div className={style.formWrapper}>
@@ -13,7 +15,7 @@ const Register = () => {
                     initialValues={{ email: '', password: '', name: '', birthdate: '', nDni: '', username: '' }}
                     validate={validateRegister}
                     onSubmit={(values, { setSubmitting, resetForm }) => {
-                        postDataRegister(values);
+                        postDataRegister(values, navigate);
                         setSubmitting(false);
                         resetForm();
                     }}

@@ -130,3 +130,15 @@ export const validateRegister = (values) => {
     }
     return true;
   };
+
+  export const canCancelAppointment = (appointmentDateString) => {
+    const appointmentDate = new Date(appointmentDateString);
+    const today = new Date();
+  
+    // Normalizar horas para comparar solo día, mes y año
+    today.setHours(0, 0, 0, 0);
+    appointmentDate.setHours(0, 0, 0, 0);
+  
+    // Verifica si la fecha de la cita es después de hoy
+    return appointmentDate > today;
+  };

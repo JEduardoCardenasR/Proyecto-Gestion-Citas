@@ -15,17 +15,30 @@ const Navbar = () => {
 
     return (
         <nav className={style.navbarContainer} >
-            
             <Link to='/' className={style.logo} onClick={() => window.scrollTo(0, 0)}>
                 <img src={logo} alt="NATALUX" />
             </Link>
-
-            <div className={style.navIcons}>
-                <p>Welcome to Natalux</p>
-            </div>
-
+            
             {
                 user.name ? (
+                    <div>
+                        <div className={style.navIcons}>
+                            <p>Welcome to Natalux</p>
+                            <p className={style.name}>
+                                {user.name}
+                            </p>
+                        </div>
+                        
+                    </div>
+                ) : (
+                    <div className={style.navIcons}>
+                        <p>Welcome to Natalux</p>
+                    </div>
+                )
+            }
+            {
+                user.name ? (
+                    
                     
                     <ul className={style.navLinks}>
                         <Link to='/appointments'>
